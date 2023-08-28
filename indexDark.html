@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>OpenLayers Demo</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="OpenLayers.js"></script>
+    <script>
+        function init() {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        }
+
+        function showPosition(position) {
+          map = new OpenLayers.Map("basicMap");
+          var mapnik         = new OpenLayers.Layer.OSM();
+          var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+          var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+          var position       = new OpenLayers.LonLat(position.coords.longitude,position.coords.latitude).transform( fromProjection, toProjection);
+          var zoom           = 15;
+
+          map.addLayer(mapnik);
+          map.setCenter(position, zoom);
+      }
+    </script>
+  </head>
+  <body onload="init();">
+
+      <!-- search bar -->
+      <div class="container">
+          <div id="basicMap" style="position:absolute; top:0; left:0; filter: grayscale();"></div> 
+          <div id="searchlogo">
+          <img src="Icons/search.png" width="375" height="60" >
+      </div>
+
+      <!-- search list -->
+      <!-- <div id="search">
+          <header class="header">  
+              <h4 class="title">Live User Filter</h4>  
+              <small class="subtitle">Search by name and/or location</small>  
+              <input type="text" id="filter" placeholder="Search">  
+          </header>  
+          <ul id="result" class="user-list">  
+            <li>
+                <h3>Loading...</h3>  
+            </li>  
+          </ul>  
+      </div>   -->
+      
+
+      <!-- search list -->
+      <!-- <script>
+        const result = document.getElementById('result')  
+        const filter = document.getElementById('filter')  
+        const listItems = []  
+        getData()  
+        filter.addEventListener('input', (e) => filterData(e.target.value))  
+        async function getData() {  
+          const res = await fetch('https://randomuser.me/api?results=50')  
+          const { results } = await res.json()  
+          // Clear result  
+          result.innerHTML = ''  
+          results.forEach(user => {  
+            const li = document.createElement('li')  
+            listItems.push(li)  
+            li.innerHTML = `  
+              <img src="${user.picture.large}" alt="${user.name.first}">  
+              <div class="user-info">  
+                <h4>${user.name.first} ${user.name.last}</h4>  
+                <p>${user.location.city}, ${user.location.country}</p>  
+              </div>  
+            `  
+            result.appendChild(li)  
+          })  
+        }  
+        function filterData(searchTerm) {  
+          listItems.forEach(item => {  
+            if(item.innerText.toLowerCase().includes(searchTerm.toLowerCase())) {  
+              item.classList.remove('hide')  
+            } else {  
+              item.classList.add('hide')  
+            }  
+          })  
+        }  
+      </script> -->
+
+      <!-- drop-up Botton (bottom left) -->
+      </div>
+      <div id="icons" style="position:fixed; bottom:10px; left:5px; width:100px; height:100px">
+        <div class="dropdown">
+          <button onmouseover="myFunction()"  onmouseclick="myFunction()" class="dropbtn"><img src="Icons/listD.png" onmouseover="myFunction()" onmouseclick="myFunction()" id = "IconList"></button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="index.html"><img src="Icons/favD.png" class = "iconContent"></a>
+            <a href="vac.html"><img src="Icons/vacD.png" class = "iconContent"></a>
+            <a href="nearby.html"><img src="Icons/locD.png" class = "iconContent"></a>
+            <a href="FnB.html"><img src="Icons/fnbD.png" class = "iconContent"></a>
+            <a href="ticket.html"><img src="Icons/ticketD.png" class = "iconContent"></a>
+            <a href="categorial_tourism.html"><img src="Icons/appD.png" class = "iconContent"></a>
+          </div>
+        </div>
+
+        <script>
+        /* When the user clicks on the button,
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+              document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+              if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                  }
+                }
+              }
+            }
+        </script>
+      </div>
+
+      <!-- toggle dark mode -->
+      <div id="toggle">
+        <a href = "index.html"><img src="Icons/toggle_dm.png" width="100 px"; height="40 px"></a>
+      </div>
+
+      <!-- back to current location -->
+
+      <div id = "backToCurrent">
+        <a href = "index.html"><img src = "Icons/current.png" height = "100px" width = "100px"></a>
+      </div>
+
+      <!-- Click on the icon -->
+      <div id="InteractiveButton">
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn"><img src="Icons/gpsD.png" width="30px";height="20px"></button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" >
+          <span class="close">&times;</span>
+            <div id="pict">
+              <Img src="Icons/chc.jpg" id = "CHCImg">
+            </div>
+
+            <div id="content">
+            <h3>Chinese Heritage Center</h3>
+            <div class = "dataRow">
+                <img src="Icons/address.png" class = "iconInList" margin-left = "10px" >
+                <p class = "paraInList">46 Nanyang Ave, Singapore 639817</p>
+                <p> </p>
+            </div>
+            <div class = "dataRow">
+                <img src="Icons/clock.png" class = "iconInList" margin-left = "10px">
+                <p class = "paraInList">Opening Hours : 10am - 2am</p>
+                <p> </p>
+            </div>
+            <div class = "dataRow" onclick="munculin()">
+                <img src="Icons/person_red.png" class = "iconInList" margin-left = "10px">
+                <p class = "paraInList" style = "color: red; font-weight: bold">Live data count : 1,000,000 &nbsp &nbsp </p>
+                <img src="Icons/alert.png"  class = "iconInList">
+            </div>
+            <div class = "dataRow">
+                <img src="Icons/vac.png" class = "iconInList" margin-left = "10px">
+                <p class = "paraInList" style = "color: green; font-weight: bold">Around 95% is fully vaccinated</p>
+                <p> </p>
+            </div>
+            <div class = "dataRow">
+                <img src="Icons/locD.png" class = "iconInList" margin-left = "10px">
+                <p class = "paraInList">Recommended Route &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</p>
+                <img src="Icons/arrow_side.png" class = "iconInListB" >
+            </div>
+          </div>
+        </div>
+
+        <!-- back to current location -->
+        <div id = "backToCurrent">
+            <a href = "indexDark.html"><img src = "Icons/current.png" height = "100px" width = "100px"></a>
+          </div>
+
+         <!-- Alternate Location -->
+         <div id = "alternateLocPopup" class = "hide">
+            <p>Place might not be comfortable to travel as it is too crowded.</p>
+            <p>We recommend you the following location instead.</p>
+            <button id = "alternateLocbutton">
+                <p>Art, Design, and Media Building</p>
+            </button>
+          </div>
+
+        <script>
+
+        function munculin() {
+            var popup = document.getElementById("alternateLocPopup");
+            popup.classList.toggle("show");
+        }
+          // Get the modal
+          var modal = document.getElementById("myModal");
+          
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtn");
+          
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+          
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+          
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+          
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
+      </div>
+    </div>
+</div>
+
+    </div>
+  </body>
+</html>

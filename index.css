@@ -1,0 +1,309 @@
+/* overall */
+html, body{
+  width: 100%;
+  height: 100%;
+  margin:0;
+}
+
+/* map */
+#basicMap {
+  width: 100%;
+  height: 100%;
+  z-index:0;
+}
+
+
+/* search */
+#searchlogo{
+  position:absolute;
+  z-index:3;
+  top:40px;
+  left:50px;
+}
+
+/* toggle */
+#toggle{
+  position:absolute;
+  right : 50px;
+  top : 40px;
+  z-index:4;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  left: -10px;
+  border: none;
+}
+
+#IconList{
+  width: 70px;
+  height: 70px;
+  top:50px;
+  padding:10px;
+  left: 20px;
+}
+
+#icons{
+  z-index:1;
+  left: 1px;
+  border: none;
+}
+
+
+/* Dropdown button on hover & focus */
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  left: 20px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /*background-image: url("Icons/bg_dropdown.png");*/
+  /*min-width: 160px;*/
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  bottom: 200px;
+  justify-content: center;
+  z-index: 1;
+  left: 10px;
+}
+
+.iconContent{
+  width:50px;
+  height:50px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+/* dropdownfilter */
+#search{
+  position: absolute;
+  z-index: -2;/*hide/appear*/
+  border: solid red;
+  left: 80px;
+  top: 20px;
+}
+#filter{
+  left:20px;
+}
+.title {  
+  margin: 0; 
+  color: red;
+ }  
+ .subtitle {  
+  display: inline-block;  
+  margin: 5px 0 20px;  
+  opacity: 0.8;  
+ }  
+ .header {  
+  background-color: #3e57db;  
+  color: #fff;  
+  padding: 30px 20px;
+  display:flex;
+  flex-direction: column;
+ }  
+ .header input {  
+  background-color: rgba(0, 0, 0, 0.3);  
+  border-radius: 50px;  
+  color: #fff;  
+  font-size: 14px;  
+  padding: 10px 15px;  
+  width: 100%;  
+ }  
+ .header input:focus {  
+  outline: none;  
+ }  
+ .user-list {  
+  background-color: #fff;  
+  list-style-type: none;  
+  margin: 0;  
+  padding: 0;  
+  max-height: 400px;  
+  overflow-y: auto;  
+ }  
+ .user-list li {  
+  display: flex;  
+  padding: 20px;  
+ }  
+ .user-list img {  
+  border-radius: 50%;  
+  object-fit: cover;  
+  height: 50px;  
+  width: 50px;  
+ }  
+ .user-list .user-info {  
+  margin-left: 10px;  
+ }  
+ .user-list .user-info h4 {  
+  margin: 0 0 10px;  
+ }  
+ .user-list .user-info p {  
+  font-size: 12px;  
+ }  
+ .user-list li:not(:last-of-type) {  
+  border-bottom: 1px solid #eee;  
+ }  
+ .user-list li.hide {  
+  display: none;  
+ } 
+
+
+ /* Modal Content */
+ .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0px;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 23.5%;
+  position: absolute;
+  right: 20px;
+  top: 100px;
+  left: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*Red arrow logo*/
+#myBtn{
+  position:absolute;
+  z-index:5;
+  left:500px;
+  top:400px;
+  background-color: transparent;
+  border: none;
+}
+
+#myBtnB{
+  position:absolute;
+  z-index:5;
+  left:700px;
+  top:400px;
+  background-color: transparent;
+  border: none;
+}
+
+/*Card Info*/
+.dataRow{
+    display: flex;
+    flex-direction:row;    
+}
+
+.dataRow:hover{
+  background-color: rgba(34, 31, 31, 0.303);
+}
+
+.iconInList{
+  width:30px;
+  height:30px;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+}
+
+.iconInListB{
+  width:30px;
+  height:30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.paraInList{
+  margin-top: 15px;
+}
+
+#CHCImg{
+  top:0px;
+  width:300px;
+  height:150px;
+}
+
+/*Alternative Location*/
+.hide{
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible;
+}
+
+#alternateLocPopup{
+  background: white;
+  height: 100px;
+  width: 357px;
+  left: 600px;
+  top: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: absolute;
+  z-index:5;
+  line-height: 0.5;
+  font-family: Arial;
+  font-size: 13px;
+  border: solid black;
+}
+
+#alternateLocbutton{
+  background: #8AFF88 65%;
+  border-radius: 10px;
+  border: none;
+}
+
+/*Back to Current*/
+#backToCurrent{
+  position: absolute;
+  z-index: 3;
+  left: 1320px;
+  top: 650px;
+}
